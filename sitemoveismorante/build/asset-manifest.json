@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a2a02f2b.css",
+    "main.js": "/static/js/main.944294f8.js",
+    "static/media/cozinha.jpg": "/static/media/cozinha.37653068e55866367f94.jpg",
+    "index.html": "/index.html",
+    "main.a2a02f2b.css.map": "/static/css/main.a2a02f2b.css.map",
+    "main.944294f8.js.map": "/static/js/main.944294f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2a02f2b.css",
+    "static/js/main.944294f8.js"
+  ]
+}
