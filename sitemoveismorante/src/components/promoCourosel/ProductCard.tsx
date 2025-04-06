@@ -12,10 +12,11 @@ const ProductCard = ({ product }: ProductProps) => {
     return (
         <>
             <div
-                className='promotionalProduct rounded-lg bg-white '
+                className='promotionalProduct rounded-lg bg-white
+                 text-gray-600'
                 onClick={() => setProductSelected(product.id) }
             >
-                <div className='p-2'>
+                <div className='flex items-center justify-center p-2 !h-2'>
                     <img
                         src={product.images[0]}
                         className='object-cover'

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 interface OverlayProps {
     isOpen: Boolean;
     onClose: (e: any) => void;
@@ -5,6 +7,14 @@ interface OverlayProps {
 }
 
 const Overlay: React.FC<OverlayProps> = ({ isOpen, onClose, children }) => {
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [isOpen])
 
     return (
         <div onClick={onClose} className={`${isOpen === true ?

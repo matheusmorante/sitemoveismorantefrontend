@@ -8,11 +8,10 @@ const penteadeiraGala = {
     id:16,
     title: 'Penteadeira Gala',
     images: [img1, img2, img3, img4, img5],
-    price: 449.00,
-    prevPrice: 599,
-    description: `Balcao de cozinha com 3 portas, cor avela, com pes com
-     regulagem, novo`,
-    dimensions: '1,20x54x81(lxaxp)'
+    price: 499.00,
+    prevPrice: null,
+    description: `A Penteadeira Camarim Gala da Mobler combina elegância e funcionalidade em um design compacto. Equipada com um espelho e gaveta com divisórias internas, facilita a organização dos itens de beleza e maquiagem. Produzida em MDP, oferece resistência e durabilidade, enquanto as corrediças telescópicas garantem um deslizamento suave da gaveta. Conta ainda com um kit de 2 soquetes para instalação de lâmpadas, proporcionando uma iluminação ideal. Seus pés de 25mm garantem estabilidade, suportando até 20 kg. Uma escolha sofisticada para quem deseja praticidade e estilo no dia a dia.`,
+    dimensions: '136,4 cm de altura, 110 cm de largura e 36 cm de profundidade'
 };
 
 export default penteadeiraGala;

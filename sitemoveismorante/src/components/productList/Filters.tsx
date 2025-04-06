@@ -8,7 +8,8 @@ interface FiltersProps {
 
 const Filters: React.FC<FiltersProps> = ({ isFiltersOpen, setIsFiltersOpen }) => {
     const {
-        filterValue, setFilterValue, minPrice, setMinPrice, maxPrice, setMaxPrice
+        filterValue, setFilterValue, minPrice, setMinPrice, maxPrice, setMaxPrice,
+        setOrderConfig
     } = useContext(ProductContext);
 
     useEffect(() => {
@@ -32,14 +33,14 @@ const Filters: React.FC<FiltersProps> = ({ isFiltersOpen, setIsFiltersOpen }) =>
                  justify-center items-center bg-black bg-opacity-40 z-10` :
                 'hidden'} lg:hidden `} role='dialog'
         >
-            <div className="fixed bg-white shadow-md z-50 p-3 w-80">
-                <div className="flex justify-end">
+            <div className="fixed bg-white shadow-md z-50">
+                <div className="flex justify-end p-1">
                     <i
-                        className="bi bi-x text-xl"
+                        className="bi bi-x-lg text-sm"
                         onClick={handleClose}
                     />
                 </div>
-                <div className="">
+                <div className="p-3 ">
                     <div >
                         Filtrar por
                         <input
@@ -48,15 +49,17 @@ const Filters: React.FC<FiltersProps> = ({ isFiltersOpen, setIsFiltersOpen }) =>
                             className="ml-2 bg-gray-200"
                         />
                     </div>
-                    <div className="flex gap-3 mt-5 ">
+                    <div className="flex gap-3 mt-3">
                         <div className="w-24">
                             <label>Preço minimo</label>
-                            <input
-                                type='number'
-                                className="w-full bg-gray-200"
-                                value={minPrice}
-                                onChange={e => setMinPrice(e.target.value)}
-                            />
+                            <div>
+                                <input
+                                    type='number'
+                                    className="w-full bg-gray-200"
+                                    value={minPrice}
+                                    onChange={e => setMinPrice(e.target.value)}
+                                />
+                            </div>
                         </div>
                         <div className="w-24">
                             <label>Preço máximo</label>
@@ -67,6 +70,19 @@ const Filters: React.FC<FiltersProps> = ({ isFiltersOpen, setIsFiltersOpen }) =>
                                 onChange={e => setMaxPrice(e.target.value)}
                             />
                         </div>
+
+                    </div>
+                    <div className="block mt-3">
+                        <label>Ordernar por</label>
+                        <select
+                            className="ml-3"
+                            onChange={e => setOrderConfig(e.target.value)}
+                        >
+                            <option value='ascTitle'>A-Z</option>
+                            <option value='descTitle'>Z-A</option>
+                            <option value='ascPrice'>Menor preço </option>
+                            <option value='descPrice'>Maior preço </option>
+                        </select>
                     </div>
                 </ div>
             </div>

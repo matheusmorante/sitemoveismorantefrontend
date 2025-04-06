@@ -8,7 +8,7 @@ const bancada1180 = {
     title: 'Bancada 1180 Pés Palito Retro',
     category: 'sala de estar',
     images: [img1, img2, img3, img4],
-    price: 449.00,
+    price: 449,
     prevPrice: 599,
     description: `Com duas portas deslizantes que percorrem cada uma
         2 nichos, oferece um design moderno para o seu ambiente,

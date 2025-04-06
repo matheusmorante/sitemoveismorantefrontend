@@ -1,13 +1,13 @@
 import img3 from './images/3-33.jpg';
 import img2 from './images/239458-1600-auto.webp';
-import img1 from './images/180_bancada_nt_1315_para_tv_ate_60_notavel_moveis_3212_3_ca1587028eda6b7d10e539736052cdf2.jpeg';
+import img1 from './images/D_NQ_NP_882162-MLB68921339565_042023-O.webp';
 
 const bancada1285 = {
     id:2,
-    title: 'Guarda roupa de portas',
+    title: 'Rack Bancada NT 1285 Freijó com Preto',
     images: [img1, img2, img3],
-    price: 449.00,
-    prevPrice: 599,
+    price: 499,
+    prevPrice: 649,
     description:
         `Rack Bancada NT 1285 Freijó com Off White - Notável.
         Uma mescla de design moderno e retrô, a Bancada NT 1285

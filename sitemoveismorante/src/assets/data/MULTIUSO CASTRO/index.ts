@@ -5,11 +5,10 @@ const multiusoCastro = {
     id:15,
     title: 'Multiuso Castro',
     images: [img1, img2, img3],
-    price: 449.00,
-    prevPrice: 599,
-    description: `Balcao de cozinha com 3 portas, cor avela, com pes com
-     regulagem, novo`,
-    dimensions: '1,20x54x81(lxaxp)'
+    price: 299,
+    prevPrice: null,
+    description: `O Roupeiro Multiuso Versátil Branco Line da Castro Móveis é a escolha ideal para quem busca organização, praticidade e estilo. Com um design discreto e compacto, pode ser utilizado em diversos cômodos, oferecendo um amplo espaço interno para armazenar roupas, objetos e utensílios. Produzido em MDP de 12mm, garante resistência e durabilidade, enquanto o acabamento em pintura UV com vernizes em alto relevo proporciona proteção contra riscos e um toque sofisticado. Um móvel versátil e funcional para otimizar seu dia a dia.`,
+    dimensions: '55x35,5x183 cm (LxPxA)'
 };
 
 export default multiusoCastro;

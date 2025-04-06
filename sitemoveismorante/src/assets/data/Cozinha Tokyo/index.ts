@@ -3,14 +3,13 @@ import img2 from './images/Dacheri - Ambiente - Cozinha Tokyo - Montana-Avela.jp
 import img3 from './images//Photoroom-20241113_124444.png';
 
 const cozinhaTokyo = {
-    id:6,
-    title: 'Guarda roupa de portas',
+    id: 6,
+    title: 'Cozinha Compacta Tokyo',
     images: [img1, img2, img2, img3],
-    price: 449.00,
-    prevPrice: 599,
-    description: `Balcao de cozinha com 3 portas, cor avela, com pes com
-     regulagem, novo`,
-    dimensions: '1,20x54x81(lxaxp)'
+    price: 999,
+    prevPrice: null,
+    description: `A Cozinha Tokyo oferece praticidade e resistência, contando com espaço para micro-ondas ou forno elétrico e 2 gavetas com corrediças metálicas super resistentes. Sua estrutura é feita inteiramente em MDP de 12mm e 15mm, garantindo firmeza e durabilidade. Com um design moderno na cor Montana/Canela, possui 9 portas que proporcionam amplo espaço de armazenamento. Não acompanha tampo nem fundo.`,
+    dimensions: '198 cm de altura, 184 cm de largura e 51 cm de profundidade'
 };
 
 export default cozinhaTokyo;
