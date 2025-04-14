@@ -13,5 +13,8 @@
     "create-react-app": "^5.1.0",
     "react": "^19.0.0",
     "react-router-dom": "^6.30.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
