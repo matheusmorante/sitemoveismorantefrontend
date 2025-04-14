@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
+import ProductDetail from './pages/ProductDetail';
+import CreditCard from './pages/CreditCard';
 
 function App() {
     return (
@@ -19,6 +21,8 @@ function App() {
                                 <ProductList />
                             </ProductProvider>
                         } />
+                        <Route path='/product/:id' element={<ProductDetail />} />
+                        <Route path='/crediario' element={<CreditCard/>} />
                         <Route path='/about-us' element={<AboutUs />} />
                         <Route path='/contact-us' element={<ContactUs />} />
                     </Routes>

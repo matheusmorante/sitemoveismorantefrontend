@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Product } from '../../assets/data/products';
 import ReactPaginate from 'react-paginate';
 
@@ -16,7 +16,7 @@ const ProductPagination = ({ products, setCurrentProducts }: ProductPaginationPr
     useEffect(() => {
         const newCurrentProducts = products.slice(offset, offset + itemsPerPage);
         setCurrentProducts(newCurrentProducts);
-    }, [ products, offset, itemsPerPage, setCurrentProducts]);
+    }, [products, offset, itemsPerPage, setCurrentProducts]);
 
     const handlePageClick = (e: { selected: number }) => {
         setCurrentPage(e.selected)
@@ -34,14 +34,18 @@ const ProductPagination = ({ products, setCurrentProducts }: ProductPaginationPr
             nextLabel=">"
             onPageChange={handlePageClick}
             pageCount={pageCount}
-            previousClassName='px-3 py-1 border border-gray-300 rounded hover:bg-gray-200'
-            nextClassName='px-3 py-1 border border-gray-300 rounded hover:bg-gray-200'
-            containerClassName="flex justify-center  items-center gap-2 mt-6"
-            pageClassName="px-3 py-1 border border-gray-300 rounded hover:bg-gray-200"
-            activeClassName="bg-blue-400"
+            previousClassName=' border border-gray-300 rounded hover:bg-gray-200'
+            previousLinkClassName='block px-3 py-2 '
+            nextClassName='border border-gray-300 rounded hover:bg-gray-200'
+            nextLinkClassName='block px-3 py-2'
+            containerClassName="flex justify-center items-center gap-2 mt-6"
+            pageClassName=" border border-gray-300 rounded hover:bg-gray-200"
+            pageLinkClassName='block px-3 py-2'
+            activeClassName="bg-blue-400 hover:bg-blue-600"
             pageRangeDisplayed={2}
             marginPagesDisplayed={1}
         />
+
     )
 }
 

@@ -1,23 +1,24 @@
-import { useContext, memo } from 'react';
+import { memo } from 'react';
 import { Product } from '../../assets/data/products'
-import { ProductContext } from '../../contexts/ProductContext';
 import handleTitle from '../../utils/handleTitle';
+import { useNavigate } from 'react-router-dom';
+import formatCurrency from '../../utils/formatCurrency';
 
 interface ProductProps {
     product: Product;
 }
 
 const ProductCard = memo(({ product }: ProductProps) => {
-    const { setProductSelected } = useContext(ProductContext)
+    const navigate = useNavigate();
 
     return (
         <>
-            <div className='rounded-lg bg-white shadow-md  text-gray-600'
-                onClick={() => { setProductSelected(product.id) }}>
-                <div className='flex items-center justify-center p-2'>
+            <div className='product-card rounded-lg bg-white shadow-md text-gray-600'
+                onClick={() => navigate(`/product/${product.id}`)}>
+                <div className='img-container flex items-center justify-center p-2'>
                     <img
                         src={product.images[0]}
-                        className='h-full object-cover '
+                        className='square'
                         alt='imagem do produto'
                         loading='lazy'
                     />
@@ -28,12 +29,12 @@ const ProductCard = memo(({ product }: ProductProps) => {
                     <div className='flex items-center gap-2'>
                         <span className='text-green-500 text-lg font-medium
                             whitespace-nowrap'>
-                            R$ {product.price}
+                            {formatCurrency(product.price)}
                         </span>
                         {product.prevPrice && (
                             <span className='text-red-500 line-through text-xs
                                 whitespace-nowrap'>
-                                R$ {product.prevPrice}
+                                {formatCurrency(product.prevPrice)}
                             </span>
                         )}
                     </div>

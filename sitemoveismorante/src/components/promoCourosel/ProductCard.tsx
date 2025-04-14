@@ -1,25 +1,26 @@
-import { useContext } from 'react';
-import { ProductContext } from '../../contexts/ProductContext';
+import formatCurrency from '../../utils/formatCurrency';
 import { Product } from '../../assets/data/products'
+import { useNavigate } from 'react-router-dom';
 
 interface ProductProps {
     product: Product;
 }
 
 const ProductCard = ({ product }: ProductProps) => {
-    const { setProductSelected } = useContext(ProductContext);
+    const navigate = useNavigate();
 
     return (
-        <>
+
             <div
-                className='promotionalProduct rounded-lg bg-white
+                className=' product-card rounded-lg bg-white
                  text-gray-600'
-                onClick={() => setProductSelected(product.id) }
+                 onClick={() => navigate(`/product/${product.id}`)}
             >
-                <div className='flex items-center justify-center p-2 !h-2'>
+                <div className='img-container flex items-center justify-center
+                    p-2'>
                     <img
                         src={product.images[0]}
-                        className='object-cover'
+                        className='square'
                         alt='imagem do produto'
                         loading='lazy'
                     />
@@ -29,11 +30,11 @@ const ProductCard = ({ product }: ProductProps) => {
 
                     <div>
                         <span className='text-green-500 text-lg font-medium'>
-                            R$ {product.price}
+                            {formatCurrency(product.price)}
                         </span>
                         {product.prevPrice &&
-                            <span className='text-red-500 line-through text-sm ml-2'>
-                                R$ {product.prevPrice}
+                            <span className='text-red-500 line-through text-xs ml-2'>
+                                {formatCurrency(product.prevPrice)}
                             </span>
                         }
                     </div>
@@ -41,7 +42,7 @@ const ProductCard = ({ product }: ProductProps) => {
                 </div>
             </div>
 
-        </>
+
     )
 };
 

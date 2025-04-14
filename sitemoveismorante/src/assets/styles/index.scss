@@ -1,6 +1,45 @@
+@import 'swiper/css';
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
     font-family: "Roboto", sans-serif;
+}
+
+.product-card {
+    height: 320px;
+
+}
+
+.img-container {
+    aspect-ratio: 1;
+}
+
+.productDetail {
+    position: fixed;
+}
+
+.square {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+
+
+@media (min-width: 768px) {
+    .product-card {
+        height: 380px;
+
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .product-card {
+        height: 480px;
+
+    }
+
+
+    
 }
