@@ -17,7 +17,7 @@ const ProductCard = ({ product }: ProductProps) => {
                  onClick={() => navigate(`/product/${product.id}`)}
             >
                 <div className='img-container flex items-center justify-center
-                    p-2'>
+                    p-2 lg:p-4'>
                     <img
                         src={product.images[0]}
                         className='square'

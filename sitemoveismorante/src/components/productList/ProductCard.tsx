@@ -15,7 +15,7 @@ const ProductCard = memo(({ product }: ProductProps) => {
         <>
             <div className='product-card rounded-lg bg-white shadow-md text-gray-600'
                 onClick={() => navigate(`/product/${product.id}`)}>
-                <div className='img-container flex items-center justify-center p-2'>
+                <div className='img-container flex items-center justify-center p-2 lg:p-4'>
                     <img
                         src={product.images[0]}
                         className='square'
