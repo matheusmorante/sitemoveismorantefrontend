@@ -11,7 +11,7 @@ const Header = () => {
       <header className="flex items-center justify-between bg-white p-2 py-3 md:px-20 
         md:py-4 lg:px-40">
         <a href="/">
-          <img src={logo} className="object-cover h-5 lg:h-6" />
+          <img src={logo} className="object-cover h-7 lg:h-6" />
         </a>
         <div className='flex text-lg gap-2'>
           <CartButton />

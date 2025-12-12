@@ -12,7 +12,6 @@ const filterProducts = (
   categories: Category[]
 ) =>
   products.filter(p => {
-    const category = categories.find(cat => cat.id === p.categoryId);
     const { description } = p;
     const price = p.pricing.price;
     const { titleSearch, minPrice, maxPrice, categoryIds } = filterConfig;
@@ -26,10 +25,7 @@ const filterProducts = (
       (minPrice === 0 || price >= min) &&
       (maxPrice === 0 || price <= max);
 
-    const matchesCategory =
-      categories.length === 0 ||
-      categoryIds.includes(p.categoryId);
-      category?.parentsId?.some(parentId => categoryIds.includes(parentId) );
+    const matchesCategory = categoryIds.length === 0 || categoryIds.includes(p.categoryId) 
       
     return matchesTitle && matchesPrice && matchesCategory;;
   });
