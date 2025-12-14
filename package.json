@@ -2,7 +2,7 @@
   "name": "sitemoveismorante",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,11 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.14",
     "create-react-app": "^5.1.0",
+    "postcss": "^8.5.6",
     "react": "^19.0.0",
     "react-router-dom": "^6.30.0"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "gh-pages": "^6.3.0",
+    "prettier": "3.6.2",
+    "tailwindcss": "^3.4.18"
   }
 }
