@@ -37,8 +37,9 @@ const ParentCategory = ({ parentCategory, categories }: Props) => {
                 const newIds = [...current, ...subCategoryIds];
                 return { ...prev, categoryIds: newIds };
             }
-        }) 
+        })
     }
+
     return (
         <li
             key={parentCategoryId}
@@ -55,7 +56,7 @@ const ParentCategory = ({ parentCategory, categories }: Props) => {
                         onClick={toggleParentSelection}
                         className={areAllSubCategoriesSelected ? 'text-blue-600' : ''}
                     >
-                        {parentCategory.name}
+                        {parentCategory.name} 
                     </div>
                 </div>
                 <span

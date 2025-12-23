@@ -1,13 +1,17 @@
 import { SetStateAction } from 'react';
 import ReactPaginate from 'react-paginate';
 
+interface Props {
+   pageCount: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<SetStateAction<number>>;
+}
+
 const ProductPagination = ({
   pageCount,
+  currentPage,
   setCurrentPage,
-}: {
-  pageCount: number;
-  setCurrentPage: React.Dispatch<SetStateAction<number>>;
-}) => {
+}: Props) => {
   const handlePageClick = (e: { selected: number }) => {
     setCurrentPage(e.selected);
     window.scrollTo({
@@ -33,6 +37,7 @@ const ProductPagination = ({
       activeClassName="bg-blue-400 hover:bg-blue-600"
       pageRangeDisplayed={2}
       marginPagesDisplayed={1}
+      forcePage={currentPage}
     />
   );
 };

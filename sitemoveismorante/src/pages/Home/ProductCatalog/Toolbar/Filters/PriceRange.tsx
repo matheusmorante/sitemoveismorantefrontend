@@ -1,26 +1,32 @@
 import CurrencyInput from "../../../../../components/CurrencyInput"
 import { useProductsCatalog } from "../../../../../context/ProductsCatalogContext"
+import { highestPrice, lowestPrice } from "../../../../../utils/calculations";
+import formatCurrency from "../../../../../utils/formatCurrency";
 
 const PriceRange = () => {
-  const { filterConfig, handleFilterConfig } = useProductsCatalog();
+  const { handledProducts, filterConfig, handleFilterConfig } = useProductsCatalog();
   const min = filterConfig.minPrice;
   const max = filterConfig.maxPrice;
 
   const handleChange = (key: "minPrice" | "maxPrice", value: string) => {
-    const num = Number(value) || 0;
+    handleFilterConfig(key, value);
 
-    const currentMin = filterConfig.minPrice ?? 0;
-    const currentMax = filterConfig.maxPrice ?? 5000;
-
-    const newMin = key === "minPrice" ? num : currentMin;
-    const newMax = key === "maxPrice" ? num : currentMax;
-
-    if (newMin > newMax) return;
-    if (newMax > 5000) return;
-    if (newMin < 0) return;
-
-    handleFilterConfig(key, num);
   };
+
+  const onBlur = (key: "minPrice" | "maxPrice", value: string) => {
+    const minValue = Number(key === "minPrice" ? value : min);
+    const maxValue = Number(key === "maxPrice" ? value : max);
+
+    if (minValue && maxValue && minValue > maxValue) {
+
+      key === "minPrice" ? (
+        handleFilterConfig(key, String(maxValue - 1))
+      ) : (
+        handleFilterConfig("minPrice", String(maxValue - 1))
+      )
+    }
+  }
+
 
   return (
     <div className="flex gap-3 mt-3">
@@ -28,18 +34,22 @@ const PriceRange = () => {
         <label>Preço minimo</label>
         <div>
           <CurrencyInput
-            className="w-full bg-gray-200"
+            className="w-full bg-gray-200 pl-1"
             value={min}
-            onChange={(value: string) => handleChange('minPrice', value)}
+            onBlur={(v: string) => onBlur('minPrice', v)}
+            placeholder={formatCurrency(lowestPrice(handledProducts))}
+            onChange={(v: string) => handleChange('minPrice', v)}
           />
         </div>
       </div>
       <div className="flex flex-col ">
         <label>Preço máximo</label>
         <CurrencyInput
-          className="w-full bg-gray-200"
+          className="w-full bg-gray-200 pl-1"
           value={max}
-          onChange={(value: string) => handleChange('maxPrice', value)}
+          onBlur={(v: string) => onBlur('maxPrice', max)}
+          placeholder={formatCurrency(highestPrice(handledProducts))}
+          onChange={(v: string) => handleChange('maxPrice', v)}
         />
       </div>
     </div>

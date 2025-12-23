@@ -2,9 +2,11 @@ import { useEffect, useState } from "react"
 import { getCategories } from "../../../../../../mock/services/categories";
 import { Category } from "../../../../../../types/category.type";
 import ParentCategory from "./ParentCategory";
+import { useProductsCatalog } from "../../../../../../context/ProductsCatalogContext";
 
 const Categories = () => {
     const [categories, setCategories] = useState<Category[]>([]);
+    const {handleFilterConfig} = useProductsCatalog()
     const parentCategories = categories
         .filter(c => c.parentsId === null)
         .sort((a: Category, b: Category) => a.name.localeCompare(b.name));
@@ -24,6 +26,12 @@ const Categories = () => {
         <div>
             <h1 className="text-base font-bold">Fltrar por categoria:</h1>
             <ol>
+                <li 
+                    onClick={() => handleFilterConfig('categoryIds', [])}
+                    className="text-blue-600 cursor-pointer"
+                >
+                    Limpar
+                    </li>
                 {parentCategories.map(c => (
                     <ParentCategory categories={categories} parentCategory={c} />
                 ))}

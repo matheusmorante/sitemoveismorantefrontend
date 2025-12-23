@@ -3,7 +3,7 @@ import img2 from './images/Dacheri - Ambiente - Cozinha Tokyo - Montana-Avela.jp
 import img3 from './images//Photoroom-20241113_124444.png';
 
 const cozinhaTokyo = {
-  id: 6,
+  id: 9,
   title: 'Cozinha Compacta Tokyo',
   categoryId: 18,
   images: [img1, img2, img2, img3],

@@ -3,7 +3,7 @@ import img2 from './images/IMG-20240202-WA0027.jpg';
 import img3 from './images/IMG-20240202-WA0029.jpg';
 
 const guardaRoupaLyonBranco = {
-  id: 8,
+  id: 17,
   title: 'Guarda Roupa Lyon Branco',
   categoryId: 4,
   images: [img1, img2, img3],

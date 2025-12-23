@@ -8,32 +8,37 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [filterConfig, setFilterConfig] = useState<FilterConfig>({
         titleSearch: '',
-        minPrice: 0,
-        maxPrice: 5000,
+        minPrice: "",
+        maxPrice: "",
         categoryIds: []
     });
+    const [handledProducts, setHandledProducts] = useState<Product[]>([]);
 
     const handleFilterConfig = (
         key: keyof FilterConfig,
-        value: number | string 
+        value: number | string | number[]
     ) => {
-          setFilterConfig(prev => {
-        if (key === "categoryIds") {
-            if (!Array.isArray(value)) return prev; 
-            return { ...prev, categoryIds: value };
-        }
+        setFilterConfig(prev => {
+            if (key === "categoryIds") {
+                if (!Array.isArray(value)) return prev;
+                return { ...prev, categoryIds: value };
+            }
 
-        return { ...prev, [key]: value };
-    });
+            return { ...prev, [key]: value };
+        });
     };
+
+
 
     return (
         <ProductsCatalogContext.Provider value={{
             products,
             setProducts,
+            handledProducts,
+            setHandledProducts,
             filterConfig,
             setFilterConfig,
-            handleFilterConfig
+            handleFilterConfig,
         }}>
             {children}
         </ProductsCatalogContext.Provider>

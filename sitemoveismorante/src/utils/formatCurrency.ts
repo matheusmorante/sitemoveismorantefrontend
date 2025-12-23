@@ -2,7 +2,8 @@ const formatCurrency = (value: number) => {
   return value.toLocaleString('pt-br', {
     style: 'currency',
     currency: 'BRL',
-    minimumFractionDigits: value % 1 === 0 ? 0 : 2,
+    
+    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 };

@@ -3,13 +3,13 @@ import img2 from './images/239458-1600-auto.webp';
 import img1 from './images/D_NQ_NP_882162-MLB68921339565_042023-O.webp';
 
 const bancada1285 = {
-  id: 2,
+  id: 4,
   title: 'Rack Bancada NT 1285 Freijó com Preto',
   categoryId: 32,
   images: [img1, img2, img3],
    pricing: {
      price: 599,
-  promotionalPrice: 449,
+  promotionalPrice: 499,
   paymentDiscountPercent: 5,
   },
 

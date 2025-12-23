@@ -26,7 +26,8 @@ const ProductDetail = () => {
 
     return (
         <Layout>
-            <div className="flex flex-col bg-white z-10 pb-4 md:px-20 lg:px-40 overflow-y-visible">
+            <div className="flex flex-col bg-white z-10 pb-4md:px-2 lg:px-4
+                 overflow-y-visible">
                 <i className="ml-1 bi bi-arrow-left text-md" onClick={() => navigate('/')} />
 
                 <div className="flex flex-col lg:grid grid-cols-2">

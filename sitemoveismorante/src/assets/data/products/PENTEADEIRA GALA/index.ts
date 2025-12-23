@@ -5,7 +5,7 @@ import img4 from './images/image-4.jpeg';
 import img5 from './images/image-1.jpeg';
 
 const penteadeiraGala = {
-  id: 16,
+  id: 25,
   title: 'Penteadeira Gala',
   categoryId: 5,
   images: [img1, img2, img3, img4, img5],

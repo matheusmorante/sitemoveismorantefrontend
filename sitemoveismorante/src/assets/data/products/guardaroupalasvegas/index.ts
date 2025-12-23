@@ -4,7 +4,7 @@ import img3 from './images/IMG-20240202-WA0011.jpg';
 import img4 from './images/IMG-20240202-WA0019.jpg';
 
 const guardaRoupaLasVegasOffWhite = {
-  id: 13,
+  id: 22,
   title: 'Guarda Roupa Las Vegas 8 Portas',
   categoryId: 4,
   images: [img1, img2, img3, img4],

@@ -3,49 +3,80 @@ import { useProductsCatalog } from "../../../../../context/ProductsCatalogContex
 import formatCurrency from "../../../../../utils/formatCurrency";
 
 const FilterLabels = () => {
-    const { filterConfig } = useProductsCatalog();
+    const { filterConfig, setFilterConfig, handleFilterConfig } =
+        useProductsCatalog();
     const categories = categoriesData.filter(
         cat => filterConfig.categoryIds.find(id => id === cat.id)
     );
-    const stringifyCategories = categories
-        .map(c => c.name)
-        .join(', ')
+    const removeCategory = (id: number) => {
+        setFilterConfig(prev => {
+            const newCategoryIds = prev.categoryIds.filter(i => i !== id);
+            return {...prev, categoryIds:newCategoryIds}
+        })
+    }
 
     const titleSearch = filterConfig.titleSearch;
     const isTitleFiltered = titleSearch.length > 0;
 
     const minPrice = filterConfig.minPrice;
-    const formattedMinPrice = formatCurrency(minPrice);
+    const formattedMinPrice = minPrice ? formatCurrency(Number(minPrice)) : '';
 
     const maxPrice = filterConfig.maxPrice;
-    const formattedMaxPrice = formatCurrency(maxPrice);
+    const formattedMaxPrice = maxPrice ? formatCurrency(Number(maxPrice)) : "";
+
 
     const filters = [];
 
     if (isTitleFiltered) filters
-        .push(`contêm "${titleSearch}" no título`);
+        .push({
+            text: `contêm "${titleSearch}" no título`,
+            onRemove: () => handleFilterConfig('titleSearch', '')
+        });
 
-    if (categories.length > 0) filters
-        .push(stringifyCategories);
 
     if (minPrice && maxPrice) filters
-        .push(`de ${formattedMinPrice} até ${formattedMaxPrice}`);
+        .push({
+            text: `de ${formattedMinPrice} até ${formattedMaxPrice}`,
+            onRemove: () => {
+                handleFilterConfig('maxPrice', "");
+                handleFilterConfig('minPrice', "");
+            }
+        });
 
     if (minPrice && !maxPrice) filters
-        .push(`a partir de ${formattedMinPrice}`);
+        .push({
+            text: `a partir de ${formattedMinPrice}`,
+            onRemove: () => handleFilterConfig('minPrice', "")
+        });
 
     if (!minPrice && maxPrice) filters
-        .push(`até ${formattedMaxPrice}`);
+        .push({
+            text: `até ${formattedMaxPrice}`,
+            onRemove: () => handleFilterConfig('maxPrice', "")
+        });
+
+    filterConfig.categoryIds.map(id => {
+        const category = categories.find(cat => cat.id === id);
+        filters.push(
+            {
+                text: `${category?.name}`,
+                onRemove: () => removeCategory(id)
+            }
+        )
+    })
+
 
     return (
         <div className="flex gap-2 items-center">
             <span >Filtros: </span>
-            {filters.map((f: String) => (
-                <span className="bg-blue-500 rounded-full text-white py-1 px-2">
-                    {f}
-                    <i className="bi bi-x ml-1" />
-                </span>
-            ))}
+            <div className="flex flex-wrap gap-2">
+                {filters.map((f) => (
+                    <span className="bg-blue-500 rounded-full text-white py-1 px-2">
+                        {f.text}
+                        <i className="bi bi-x ml-1" onClick={f.onRemove} />
+                    </span>
+                ))}
+            </div>
         </div>
     )
 }

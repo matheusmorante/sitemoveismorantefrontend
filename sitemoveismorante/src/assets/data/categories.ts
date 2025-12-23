@@ -22,7 +22,7 @@ export const categoriesData: Category[] = [
     { id: 19, name: 'Cozinhas Modulada', parentsId: [12] },
     { id: 20, name: 'Balcões para Cooktop', parentsId: [12] },
     { id: 21, name: 'Paneleiros', parentsId: [12] },
-    { id: 22, name: 'Armários Para Fornos', parentsId: [12] },
+    { id: 22, name: 'Armários para Fornos', parentsId: [12] },
     { id: 23, name: 'Fruteiras', parentsId: [12] },
     { id: 24, name: 'Kits de Cozinha', parentsId: [12] },
     { id: 26, name: 'Escritório', parentsId: null },
@@ -43,8 +43,7 @@ export const categoriesData: Category[] = [
     { id: 41, name: 'Conjunto para Banheiro', parentsId: [40] },
     { id: 42, name: 'Armários Multiuso', parentsId: [1, 26] },
     { id: 25, name: 'Estantes', parentsId: [1, 26, 29] },
-    { id: 36, name: 'Aparadores', parentsId: [12, 29, 36] },
-    
+    { id: 43, name: 'Aparadores', parentsId: [29, 36] },
 ]
 
 

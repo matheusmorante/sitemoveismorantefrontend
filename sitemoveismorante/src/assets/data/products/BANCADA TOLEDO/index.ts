@@ -4,7 +4,7 @@ import img3 from './images/Rack+-+Toledo+-+Pérola_Cinamomo_Sem+Painel-640w.webp
 import img4 from './images/D_NQ_NP_676387-MLB82708165127_022025-O-rack-sala-bancada-135-portas-estante-tv-ate-50-home-toledo.jpeg';
 
 const bancadaToledo = {
-  id: 4,
+  id: 6,
   title: 'Rack Bancada Toledo para TV até 50',
   categoryId: 32,
   images: [img1, img2, img3, img4],

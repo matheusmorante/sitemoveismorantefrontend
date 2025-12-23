@@ -1,6 +1,6 @@
 export type FilterConfig = {
   titleSearch: string;
-  minPrice: number;
-  maxPrice: number;
+  minPrice: string;
+  maxPrice: string;
   categoryIds: number[];
 };

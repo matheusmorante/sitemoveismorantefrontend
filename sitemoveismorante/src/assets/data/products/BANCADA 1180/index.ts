@@ -4,9 +4,9 @@ import img3 from './images/202354-1200-auto.jpeg';
 import img4 from './images/202351-1200-auto.jpeg';
 
 const bancada1180 = {
-  id: 1,
+  id: 3,
   title: 'Bancada 1180 Pés Palito Retro',
-  categoryId: 1,
+  categoryId: 32,
   images: [img1, img2, img3, img4],
   pricing: {
     price: 599,

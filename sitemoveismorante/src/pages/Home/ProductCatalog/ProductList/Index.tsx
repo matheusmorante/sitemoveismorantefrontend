@@ -4,14 +4,13 @@ import { productsData } from "../../../../assets/data/products/products";
 import ProductPagination from "./ProductPagination";
 import ProductCard from "./ProductCard";
 import { useProductsCatalog } from "../../../../context/ProductsCatalogContext";
-import { Product, SortBy } from "../../../../types/productsCatalog.type";
+import { SortBy } from "../../../../types/productsCatalog.type";
 import Header from "./Header/Index";
 
 
 const ProductList = () => {
     const [currentPage, setCurrentPage] = useState<number>(0);
-    const { filterConfig } = useProductsCatalog();
-    const [handledProducts, setHandledProducts] = useState<Product[]>([]);
+    const { handledProducts, setHandledProducts, filterConfig } = useProductsCatalog();
     const [pageCount, setPageCount] = useState(0);
     const [sortBy, setSortBy] = useState<SortBy>('ascTitle');
 
@@ -27,11 +26,12 @@ const ProductList = () => {
             setPageCount(pageCount);
         };
         load();
-    }, [filterConfig, sortBy, currentPage]);
+    }, [filterConfig, sortBy, currentPage, setHandledProducts]);
 
     return (
         <div className="flex flex-col w-full">
-            <Header sortBy={sortBy}  setSortBy={setSortBy}/>
+            <Header setSortBy={setSortBy} />
+     
             <div className="flex-1">
                 {handledProducts.length > 0 ? (
                     <div
@@ -46,7 +46,7 @@ const ProductList = () => {
                 )}
             </div>
 
-            <ProductPagination pageCount={pageCount} setCurrentPage={setCurrentPage} />
+            <ProductPagination pageCount={pageCount} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
         </div>
     )
 }

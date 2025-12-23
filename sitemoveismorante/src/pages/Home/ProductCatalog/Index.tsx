@@ -29,7 +29,7 @@ const ProductCatalog = () => {
   if (loading) return <div>carregando</div>
 
   return (
-    <section id="products" className="flex gap-6 p-3 py-3 md:px-20 md:py-4 lg:px-40">
+    <section id="products" className="flex gap-6 p-3 py-3  md:px-2 lg:px-4">
       <Toolbar/>
       <ProductList/>
     </section>

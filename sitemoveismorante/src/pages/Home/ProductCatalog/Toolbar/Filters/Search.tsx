@@ -9,7 +9,7 @@ const Search = () => {
       <input
         value={filterConfig.titleSearch}
         onChange={e => handleFilterConfig('titleSearch', e.target.value)}
-        className="bg-gray-200"
+        className="bg-gray-200 pl-1"
       />
     </div>
   )

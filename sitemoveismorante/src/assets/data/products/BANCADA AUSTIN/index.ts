@@ -5,12 +5,12 @@ import img4 from './images/2d306c5c2e5e37a8d8fd758913172b63.jpeg';
 import img5 from './images/b624cc3a098d8fe19a8f0f0881a66f2f.jpeg';
 
 const bancadaAustin = {
-  id: 3,
+  id: 5,
   title: 'Bancada Austin 1.36 metros Mobler',
   categoryId: 32,
   images: [img1, img2, img3, img4, img5],
    pricing: {
-    price: 499,
+    price: 399,
   promotionalPrice: 349,
   paymentDiscountPercent: 5,
   },

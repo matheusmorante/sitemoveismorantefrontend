@@ -9,7 +9,10 @@ interface ProductProps {
 
 const ProductCard = ({ product }: ProductProps) => {
   const navigate = useNavigate();
-
+  const price = product.pricing.price;
+  const pricingBase = product.pricing.promotionalPrice ?? product.pricing.price;
+  const promotionalPrice = product.pricing.promotionalPrice;
+  
   return (
     <div
       className="product-card rounded-lg bg-white shadow-md text-gray-600"
@@ -28,17 +31,15 @@ const ProductCard = ({ product }: ProductProps) => {
 
         <div className="flex items-center gap-2">
           <span
-            className="text-green-500 text-lg font-medium
-                            whitespace-nowrap"
+            className="text-green-500 text-lg font-medium whitespace-nowrap"
           >
-            {formatCurrency(product.pricing.price)}
+            {formatCurrency(pricingBase)}
           </span>
-          {product.pricing.promotionalPrice && (
+          {promotionalPrice && (
             <span
-              className="text-red-500 line-through text-xs
-                                whitespace-nowrap"
+              className="text-red-500 line-through text-xs whitespace-nowrap"
             >
-              {formatCurrency(product.pricing.promotionalPrice)}
+              {formatCurrency(price)}
             </span>
           )}
         </div>

@@ -1,31 +1,28 @@
-import { loadCategories } from '../mock/utils/storage';
-import { Category } from '../types/category.type';
 import { FilterConfig } from '../types/filterConfig.type';
 import { Product } from '../types/productsCatalog.type';
 import { SortBy } from '../types/productsCatalog.type';
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 15;
 
 const filterProducts = (
   products: Product[],
   filterConfig: FilterConfig,
-  categories: Category[]
 ) =>
   products.filter(p => {
     const { description } = p;
     const price = p.pricing.price;
     const { titleSearch, minPrice, maxPrice, categoryIds } = filterConfig;
-    const min = minPrice ?? 0;
-    const max = maxPrice ?? 0;
+    const min = minPrice ? Number(minPrice) : null;
+    const max = maxPrice ? Number(maxPrice) : null;
 
     const matchesTitle = description
       .toLowerCase().includes(titleSearch.toLowerCase());
 
     const matchesPrice =
-      (minPrice === 0 || price >= min) &&
-      (maxPrice === 0 || price <= max);
+      (min === null || price >= min) &&
+      (max === null || price <= max);
 
-    const matchesCategory = categoryIds.length === 0 || categoryIds.includes(p.categoryId) 
+    const matchesCategory = categoryIds?.length > 0 ? categoryIds.includes(p.categoryId) : true
       
     return matchesTitle && matchesPrice && matchesCategory;;
   });
@@ -61,8 +58,7 @@ export const handleProducts = async (
   sortBy: SortBy,
   currentPage: number
 ) => {
-  const categories = await loadCategories();
-  const filtered = filterProducts(products, filterConfig, categories);
+  const filtered = filterProducts(products, filterConfig);
   const sorted = sortProducts(filtered, sortBy);
   return paginate(sorted, currentPage);
 };
